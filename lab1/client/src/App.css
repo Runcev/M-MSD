@@ -37,10 +37,21 @@
   }
 }
 
-#calculator {
-  height: 550px;
+#calculator-wrapper {
+	display: flex;
+	gap: 20px;
+	height: 550px;
   position: static;
   padding: 10px 50px 20px 50px;
+}
+
+#calculator {
+	flex: 6;
+}
+
+.answers {
+	flex: 1;
+  text-align: left;
 }
 
 .uploadButton {
@@ -48,6 +59,3 @@
   padding: 10px;
 }
 
-.answers {
-  justify-content: center;
-}

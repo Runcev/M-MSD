@@ -21,15 +21,16 @@ const AntButton = ({handleFile}: FileUploaderProps) => {
         headers: {
             authorization: 'authorization-text',
         },
-        onChange: ({ file }) => handleChange(file)
+        onChange: ({ file }) => handleChange(file),
+				showUploadList: false
     }
 
     const handleChange = async (file: UploadFile) => {
         if (file.status === 'done') {
             handleFile(file.originFileObj);
-            message.success({ content: 'FileUploaded' });
+            // message.success({ content: 'FileUploaded' });
         } else if (file.status === 'error') {
-            message.error("Error occurred", 1);
+            // message.error("Error occurred", 1);
         }
     }
 
