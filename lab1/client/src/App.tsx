@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AntButton from "./components/antButton";
 import { isIntersected, isConvex, pointsCreation } from "./backend/check";
 
+import "antd/dist/antd.css";
 import "./App.css";
 
 const App = () => {
@@ -15,10 +16,13 @@ const App = () => {
 
 	useEffect(() => {
 		const calculatorContainer = document.getElementById("calculator");
-		if (calculatorContainer) {
+		const calculatorWrappers = document.getElementsByClassName("dcg-wrapper");
+
+		if (calculatorContainer && calculatorWrappers.length === 0) {
 			calculator = Desmos.GraphingCalculator(calculatorContainer);
 		}
 	}, []);
+
 
 	const handleFile = (file: File) => {
 		const reader = new FileReader();
@@ -68,6 +72,7 @@ const App = () => {
 				<div id="calculator" />
 				<div className="answers">
 					<AntButton handleFile={handleFile} />
+					<div style={{ height: 20 }}/>
 					{fileData && (
 						<>
 							<p id="1">Чотирикутник: {quadrangle ? "✅" : "❌"} </p>

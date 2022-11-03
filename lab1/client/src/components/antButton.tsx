@@ -7,12 +7,6 @@ interface FileUploaderProps {
     handleFile: any
 }
 
-message.config({
-    top: 50,
-    duration: 1,
-    maxCount: 1,
-});
-
 const AntButton = ({handleFile}: FileUploaderProps) => {
 
     const props: UploadProps = {
@@ -28,15 +22,15 @@ const AntButton = ({handleFile}: FileUploaderProps) => {
     const handleChange = async (file: UploadFile) => {
         if (file.status === 'done') {
             handleFile(file.originFileObj);
-            // message.success({ content: 'FileUploaded' });
+            message.success({ content: 'The file was uploaded successfully !' });
         } else if (file.status === 'error') {
-            // message.error("Error occurred", 1);
+            message.error("Error occurred during the file upload", 1);
         }
     }
 
     return (
         <Upload {...props}>
-            <Button icon={<UploadOutlined/>}>Click to Upload</Button>
+            <Button type="primary" icon={<UploadOutlined/>}>Click to Upload</Button>
         </Upload>
     );
 }
