@@ -69,7 +69,7 @@ const isConvex = (points: Point[]) => {
         curr = CrossProduct(temp);
 
         // If curr is not equal to 0
-        if (curr != 0) {
+        if (curr !== 0) {
 
             // If direction of cross product of
             // all adjacent edges are not same
